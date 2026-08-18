@@ -175,6 +175,12 @@ public final class ProtocolServer: ObservableObject {
         ioQueue.async(execute: work)
     }
 
+    /// Surface a domain-layer event in `lastActivity` (with the traffic pulse),
+    /// e.g. "Session 3 started" or "Auto-paired". Callable from any queue.
+    public func note(_ message: String) {
+        log(message)
+    }
+
     public func terminateConnectedClient() {
         ioQueue.async { [self] in
             guard let pid = clientInfo?.pid, pid > 0 else { return }
