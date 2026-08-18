@@ -51,8 +51,14 @@
 
 | Component | ImpossiBLE | CAMouflage |
 |---|---|---|
-| `ProtocolServer` (transport, takeover, hello, hardening, guard) | pending | pending |
+| `ProtocolServer` (transport, takeover, hello, hardening, guard) | ✅ adopted (2026-08-18) | ✅ adopted (2026-08-18) |
 | Shell (panel, mode controller, toggles, launch-at-login) | pending | pending |
+
+Adoption notes: both products consume the kit as a URL dependency pinned
+`from: "0.1.1"`. ImpossiBLE's `MockServer` and CAMouflage's `MockCameraServer`
+are pure domain layers now — they never touch fds, reply via
+`transport.send(_:)`, and drop client state in `onClientTeardown`. CAMouflage's
+frame plane (its second, binary socket) deliberately stays product-side.
 
 Migration is one component at a time, landing in **both** products before the
 next component moves (see PLAN-SIMSALABIM.md, Step 2.3). Client-fixture
