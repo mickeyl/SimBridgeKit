@@ -14,7 +14,7 @@
   including the two production incidents this code was hardened against
   (provider wedged by a non-reading client, provider killed by SIGPIPE on a
   dead peer). Keep them passing; they are the regression net for both products.
-- Part of the Simsalabim consolidation (see `../PLAN-SIMSALABIM.md`). Seeded
+- Part of the Simsalabim consolidation (see `../Simsalabim/PLAN.md`). Seeded
   2026-08-18 from the CAMouflage copies where the products diverged, with
   ImpossiBLE's extras (persistent panel, Command-drag fix, takeover + hello as
   shipped in ImpossiBLE 3.0.0) reconciled in.
@@ -66,7 +66,7 @@ mode transitions deliberately do not bounce through a stop — its two frame
 sources are byte-identical on the wire and switch live.
 
 Migration is one component at a time, landing in **both** products before the
-next component moves (see PLAN-SIMSALABIM.md, Step 2.3). Client-fixture
+next component moves (see ../Simsalabim/PLAN.md, Step 2.3). Client-fixture
 lifecycle and the footer acknowledgement toast are deliberately not extracted
 yet — they are entangled with product-specific models.
 
